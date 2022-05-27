@@ -70,13 +70,9 @@
                     </div>
                 </div>
                 <div class="messages">
-                    <div v-for="(message, i) in contacts[activeContact].messages" :key="i" class="message green">
-                        <div class="text-message">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit maiores blanditiis distinctio animi iure nostrum officiis corrupti cum dignissimos quaerat. Alias nulla totam quia iusto eius molestias, autem soluta magnam!</div>
-                        <div class="time-message"><h6>12:00</h6></div>
-                    </div>
-                    <div class="message grey">
-                        <div class="text-message">ciao come va?</div>
-                        <div class="time-message"><h6>12:00</h6></div>
+                    <div v-for="(message, i) in contacts[activeContact].messages" :key="i" class="message" :class="contacts[activeContact].messages[i].status === 'sent' ? 'green' : 'grey' ">
+                        <div class="text-message">{{contacts[activeContact].messages[i].message}} </div>
+                        <div class="time-message"><h6>{{contacts[activeContact].messages[i].date}} </h6></div>
                     </div>
                 </div>
                 <div class="input-message">
