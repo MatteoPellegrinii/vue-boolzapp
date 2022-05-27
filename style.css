@@ -19,7 +19,7 @@ footer{
     height: 85%;
     background-color: #d9dbd4;
 }
-main{
+#whatsapp{
     position: absolute;
     left: 50%;
     top: 50%;
@@ -154,13 +154,35 @@ img{
     margin: auto;
     width: 80%;
     height: calc(100% - 100px);
-
     background-repeat: repeat;
 }
 .green{
-    width: fit-content;
     height: min-content;
     padding: 10px;
     background-color: #d5f9ba;
     border-radius: 10px;
+    margin-bottom: 5px;
+}
+.grey{
+    width: fit-content;
+    height: min-content;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.input-message{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+.input-message input{
+    width: 80%;
+    height: 80%;
+}
+.emoticon, .audio{
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    color: gray;
 }
