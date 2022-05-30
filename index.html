@@ -46,7 +46,7 @@
                         <div class="contatto-info">
                             <div class="contatto-nome">{{contact.name}} </div>
                             <div class="contatto-last-message">
-                                <h6>Ultmo messaggio inviato:</h6>
+                                <h6>Ultmo messaggio inviato:  </h6>
                             </div>
                         </div>
                         <div class="hour">12:00</div>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="input-message">
                     <div class="emoticon"><i class="fa-solid fa-face-smile"></i></div>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage.message" @keyup.enter="newwrittenMessage(activeContact)"> 
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="newwrittenMessage(activeContact)"> 
                     <div class="audio"><i class="fa-solid fa-microphone"></i></div>
                 </div>
             </div>

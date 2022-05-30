@@ -3,16 +3,8 @@ const contacts= new Vue({
     el: '#whatsapp',
     data : {
         activeContact : 0,
-        newMessage : {
-            message : "",
-            status : 'sent',
-            date: '10/01/2020 15:51:00',
-        },
-        newAnswer : {
-            message : "ok",
-            status : 'received',
-            date: '10/01/2020 15:51:00'
-        },
+        newMessage : "",
+        newAnswer : "",
         contacts: [
             {
                 name: 'Michele',
@@ -183,19 +175,26 @@ const contacts= new Vue({
             this.activeContact = numeroContatto;
         },
         answer(activeContact){
-            this.contacts[activeContact].messages.push(this.newAnswer);
+            let newAnswer = {
+                message : 'ok',
+                date : this.hour(),
+                status : "received",
+
+            }
+            this.contacts[activeContact].messages.push(newAnswer);
         },
         newwrittenMessage(activeContact){
-            if(this.NewMessage !== ""){
-                this.contacts[activeContact].messages.push(this.newMessage);
-                this.newMessage = {
-                    message : "",
-                    status : 'sent',
-                    date: this.hour()
-                };
+            if(this.newMessage !== ""){
+                let newMessage = {
+                    message: this.newMessage,
+                    date: this.hour(),
+                    status: 'sent',
+                }
+                this.contacts[activeContact].messages.push(newMessage),
                 setTimeout(()=>{
                     this.answer(activeContact)
                 }, 1000)
+                this.newMessage = ""
             }
         },
         hour(){
