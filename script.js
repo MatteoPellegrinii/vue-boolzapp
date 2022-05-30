@@ -6,7 +6,12 @@ const contacts= new Vue({
         newMessage : {
             message : "",
             status : 'sent',
-            date : now
+            date: '10/01/2020 15:51:00'
+        },
+        newAnswer : {
+            message : "ok",
+            status : 'received',
+            date: '10/01/2020 15:51:00'
         },
         contacts: [
             {
@@ -185,6 +190,13 @@ const contacts= new Vue({
                     status : 'sent',
                     date: '10/01/2020 15:51:00'
                 };
+                this.contacts[activeContact].messages.push(this.newAnswer);
+                this.newAnswer = {
+                    message : "ok",
+                    status : 'received',
+                    date: '10/01/2020 15:51:00'
+                };
+
             }
         },
     }
