@@ -6,7 +6,7 @@ const contacts= new Vue({
         newMessage : {
             message : "",
             status : 'sent',
-            date: '10/01/2020 15:51:00'
+            date: '10/01/2020 15:51:00',
         },
         newAnswer : {
             message : "ok",
@@ -191,16 +191,21 @@ const contacts= new Vue({
                 this.newMessage = {
                     message : "",
                     status : 'sent',
-                    date: '10/01/2020 15:51:00'
+                    date: this.hour()
                 };
-                console.log(this);
                 setTimeout(()=>{
-                    console.log(this);
                     this.answer(activeContact)
                 }, 1000)
             }
         },
-
+        hour(){
+            var data = new Date();
+            var Hh, Mm, Ss;
+            Hh = data.getHours() + ":";
+            Mm = data.getMinutes() + ":";
+            Ss = data.getSeconds();
+            return(Hh + Mm + Ss);
+        }
     }
-});
+    });
           
