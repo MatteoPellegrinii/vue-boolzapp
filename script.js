@@ -182,6 +182,14 @@ const contacts= new Vue({
         cambioContatto(numeroContatto){
             this.activeContact = numeroContatto;
         },
+        answer(activeContact){
+            this.contacts[activeContact].messages.push(this.newAnswer);
+            this.newAnswer = {
+                message : "ok",
+                status : 'received',
+                date: '10/01/2020 15:51:00',
+            };
+        },
         newwrittenMessage(activeContact){
             if(this.NewMessage !== ""){
                 this.contacts[activeContact].messages.push(this.newMessage);
@@ -190,18 +198,12 @@ const contacts= new Vue({
                     status : 'sent',
                     date: '10/01/2020 15:51:00'
                 };
-                setTimeout(this.answer, 1000)
+                setTimeout(function(){
+                    this.answer(activeContact)
+                }, 1000)
             }
         },
-        answer(activeContact){
-            this.contacts[activeContact].messages.push(this.newAnswer);
-            this.newAnswer = {
-                message : "ok",
-                status : 'received',
-                date: '10/01/2020 15:51:00',
-            };
-        }
+
     }
 });
-
-
+          
