@@ -3,6 +3,11 @@ const contacts= new Vue({
     el: '#whatsapp',
     data : {
         activeContact : 0,
+        newMessage : {
+            message : "",
+            status : 'sent',
+            date : now
+        },
         contacts: [
             {
                 name: 'Michele',
@@ -171,6 +176,17 @@ const contacts= new Vue({
     methods : {
         cambioContatto(numeroContatto){
             this.activeContact = numeroContatto;
-        }
+        },
+        newwrittenMessage(activeContact){
+            if(this.NewMessage !== ""){
+                this.contacts[activeContact].messages.push(this.newMessage);
+                this.newMessage = {
+                    message : "",
+                    status : 'sent',
+                    date: '10/01/2020 15:51:00'
+                };
+            }
+        },
     }
 })
+
