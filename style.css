@@ -186,3 +186,6 @@ img{
     width: 10%;
     color: gray;
 }
+.none {
+    display: none;
+}

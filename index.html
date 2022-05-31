@@ -38,10 +38,10 @@
                 </div>
                 <div class="search-bar">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input v-model="text" @keyup="visible"  placeholder="Cerca o inizia nuova chat">
+                    <input v-model="text" @keyup="pluto"  placeholder="Cerca o inizia nuova chat">
                 </div>
                 <div id="contatti">
-                    <div class="contatto" :class="i === activeContact ? 'active' : '' " @click="cambioContatto(i)" v-for="(contact, i) in contacts" :key="i" >
+                    <div class="contatto" :class="contact.visible === true ? 'appear' : 'none' " :class="i === activeContact ? 'active' : '' " @click="cambioContatto(i)" v-for="(contact, i) in contacts" :key="i" >
                         <div class="contatto-icon" ><img :src= "contact.avatar" ></div>
                         <div class="contatto-info">
                             <div class="contatto-nome">{{contact.name}} </div>

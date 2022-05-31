@@ -219,15 +219,18 @@ const listcontacts= new Vue({
            let pippo =  this.date() + "    " + this.hour();
            return pippo;
         },
-        visible() {
-            let testo  =  this.text;
-            let result = this.contacts.name.includes(testo);
-            console.log(result);;
+        pluto() {
+            let testo = this.text;
+            this.contacts.forEach(element => {
+                let testomin = testo.toLowerCase()
+                let result = element.name.includes(testomin);
+                if(result === false) {
+                   element.visible = false;
+                }  else {
+                    element.visible = true;
+                }
+            });
 
-            if(result === false) {
-                this.contacts.visible = result
-            }  
-            
         }
           
           
