@@ -5,7 +5,7 @@ const listcontacts= new Vue({
         activeContact : 0,
         newMessage : "",
         newAnswer : "",
-        search : "",
+        text : "",
         contacts: [
             {
                 name: 'Michele',
@@ -219,6 +219,16 @@ const listcontacts= new Vue({
            let pippo =  this.date() + "    " + this.hour();
            return pippo;
         },
+        visible(activeContact) {
+            let testo  =  this.text;
+            let result = this.contacts.name.includes(testo);
+            console.log(result);;
+
+            if(result === false) {
+                this.contacts.visible = result
+            }  
+            
+        }
           
           
     }
