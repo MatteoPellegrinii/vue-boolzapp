@@ -5,6 +5,7 @@ const listcontacts= new Vue({
         activeContact : 0,
         newMessage : "",
         newAnswer : "",
+        search : "",
         contacts: [
             {
                 name: 'Michele',
@@ -216,13 +217,9 @@ const listcontacts= new Vue({
         },
         hourdate(){
            let pippo =  this.date() + "    " + this.hour();
-           return pippo
+           return pippo;
         },
-        filterItems(contacts, query) {
-            return contacts.filter(function(name) {
-              return name.toLowerCase().indexOf(query.toLowerCase()) !== -1
-            })
-          }
+          
           
     }
     });
