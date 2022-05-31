@@ -210,7 +210,7 @@ const listcontacts= new Vue({
             var data = new Date();
             var Gg, Me, Aa;
             Gg = data.getDate() + "/";
-            Me = data.getMonth() + "/";
+            Me = data.getMonth() + 1 + "/";
             Aa = data.getFullYear();
             
             return(Gg + Me + Aa);
@@ -222,18 +222,16 @@ const listcontacts= new Vue({
         pluto() {
             let testo = this.text;
             this.contacts.forEach(element => {
-                let testomin = testo.toLowerCase()
-                let result = element.name.includes(testomin);
+                let testomin = testo.toLowerCase();
+                let nomemin = element.name.toLowerCase()
+                let result = nomemin.includes(testomin);
                 if(result === false) {
                    element.visible = false;
                 }  else {
                     element.visible = true;
                 }
             });
-
-        }
-          
-          
+        },
     }
     });
           
