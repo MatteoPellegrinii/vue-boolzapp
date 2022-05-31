@@ -38,7 +38,7 @@
                 </div>
                 <div class="search-bar">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input type="text"  placeholder="Cerca o inizia nuova chat">
+                    <input type="text" @keyup="filterItems(contacts, name)"  placeholder="Cerca o inizia nuova chat">
                 </div>
                 <div id="contatti">
                     <div class="contatto" :class="i === activeContact ? 'active' : '' " @click="cambioContatto(i)" v-for="(contact, i) in contacts" :key="i" >
@@ -46,7 +46,7 @@
                         <div class="contatto-info">
                             <div class="contatto-nome">{{contact.name}} </div>
                             <div class="contatto-last-message">
-                                <h6>Ultmo messaggio inviato:  </h6>
+                                <h6>Ultmo messaggio inviato: {{contact.date}} </h6>
                             </div>
                         </div>
                         <div class="hour">12:00</div>
@@ -60,7 +60,7 @@
                     <div class="contatto-info">
                         <div class="contatto-nome">{{contacts[activeContact].name}} </div>
                         <div class="hour-chat">
-                            <h6>Ultmo accesso:</h6>
+                            <h6>Ultmo accesso: {{hourdate()}} </h6>
                         </div>
                     </div>
                     <div class="pulsantiuser">

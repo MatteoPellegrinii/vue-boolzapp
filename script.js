@@ -1,5 +1,5 @@
 
-const contacts= new Vue({
+const listcontacts= new Vue({
     el: '#whatsapp',
     data : {
         activeContact : 0,
@@ -177,7 +177,7 @@ const contacts= new Vue({
         answer(activeContact){
             let newAnswer = {
                 message : 'ok',
-                date : this.hour(),
+                date : this.hourdate(),
                 status : "received",
 
             }
@@ -187,7 +187,7 @@ const contacts= new Vue({
             if(this.newMessage !== ""){
                 let newMessage = {
                     message: this.newMessage,
-                    date: this.hour(),
+                    date: this.hourdate(),
                     status: 'sent',
                 }
                 this.contacts[activeContact].messages.push(newMessage),
@@ -204,7 +204,26 @@ const contacts= new Vue({
             Mm = data.getMinutes() + ":";
             Ss = data.getSeconds();
             return(Hh + Mm + Ss);
-        }
+        },
+        date(){
+            var data = new Date();
+            var Gg, Me, Aa;
+            Gg = data.getDate() + "/";
+            Me = data.getMonth() + "/";
+            Aa = data.getFullYear();
+            
+            return(Gg + Me + Aa);
+        },
+        hourdate(){
+           let pippo =  this.date() + "    " + this.hour();
+           return pippo
+        },
+        filterItems(contacts, query) {
+            return contacts.filter(function(name) {
+              return name.toLowerCase().indexOf(query.toLowerCase()) !== -1
+            })
+          }
+          
     }
     });
           
