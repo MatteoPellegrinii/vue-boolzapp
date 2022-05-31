@@ -38,7 +38,7 @@
                 </div>
                 <div class="search-bar">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input v-model="text" @keyup="visible(activeContact)"  placeholder="Cerca o inizia nuova chat">
+                    <input v-model="text" @keyup="visible"  placeholder="Cerca o inizia nuova chat">
                 </div>
                 <div id="contatti">
                     <div class="contatto" :class="i === activeContact ? 'active' : '' " @click="cambioContatto(i)" v-for="(contact, i) in contacts" :key="i" >
