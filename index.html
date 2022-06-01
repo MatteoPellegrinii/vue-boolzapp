@@ -41,12 +41,12 @@
                     <input v-model="text" @keyup="pluto"  placeholder="Cerca o inizia nuova chat">
                 </div>
                 <div id="contatti">
-                    <div class="contatto" :class="contact.visible === true ? 'appear' : 'none' " :class="i === activeContact ? 'active' : '' " @click="cambioContatto(i)" v-for="(contact, i) in contacts" :key="i" >
+                    <div class="contatto" :class="contact.visible === true ? 'appear' : 'none'" :class="i === activeContact ? 'active' : '' " @click="cambioContatto(i)" v-for="(contact, i) in contacts" :key="i" >
                         <div class="contatto-icon" ><img :src= "contact.avatar" ></div>
                         <div class="contatto-info">
                             <div class="contatto-nome">{{contact.name}} </div>
                             <div class="contatto-last-message">
-                                <h6>Ultmo messaggio inviato: {{lastmessage()}} </h6>
+                                <h6>Ultmo messaggio inviato: </h6>
                             </div>
                         </div>
                         <div class="hour">12:00</div>
